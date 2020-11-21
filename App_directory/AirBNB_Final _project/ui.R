@@ -6,24 +6,16 @@ navbarPage("Airbnb Analysis",
                       fluidRow(
                         sidebarLayout(
                           sidebarPanel(
-                            radioButtons("plotType", "Plot type",
-                                         c("Scatter"="p", "Line"="l")
-                            ),
-                            sliderInput("num",label = "Choose a number",
-                                        value = 25,min = 1,max=200),
+                             radioButtons("city_one", "Choose the first city",
+                                         c("Berlin"="0", "Bologna"="1", "London"="2")
+                             ),
+                             radioButtons("city_two", "Choose the second city",
+                                         c("Berlin"="0", "Bologna"="1", "London"="2")
+                            )
                           ),
-                          mainPanel(plotOutput("plot")
-                          )
-                        ),
-                        sidebarLayout(
-                          sidebarPanel(
-                            radioButtons("plotType2", "Plot type",
-                                         c("Line"="l","Scatter"="p")
-                            ),
-                            sliderInput("num2",label = "Choose a number",
-                                        value = 25,min = 1,max=200),
-                          ),
-                          mainPanel(plotOutput("plot2")
+                          mainPanel(
+                            textOutput("city_one"),
+                            textOutput("city_two")
                           )
                         ),
                       ),
