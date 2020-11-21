@@ -12,8 +12,6 @@ get_data <- function(csvurl){
   
   print(paste0("Listings loaded : ", paste( unlist(dim(listings)), collapse = ' x ' ) ) )
   
-  print(head(listings))
-  
-  return(listings)
+  return(na.omit(listings))
 }
 
