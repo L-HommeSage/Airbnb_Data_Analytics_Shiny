@@ -6,11 +6,8 @@ navbarPage("Airbnb Analysis",
                       fluidRow(
                         sidebarLayout(
                           sidebarPanel(
-                             radioButtons("city_one", "Choose the first city",
-                                         c("Berlin"="0", "Bologna"="1", "London"="2")
-                             ),
-                             radioButtons("city_two", "Choose the second city",
-                                         c("Berlin"="0", "Bologna"="1", "London"="2")
+                            checkboxGroupInput("cities", "Choose the cities to compare",
+                                         c("Berlin, Germany"="0", "Girona, Spain"="1", "London"="2")
                              ),
                              selectInput("feature", "Choose the feature",
                                          c(
@@ -24,7 +21,8 @@ navbarPage("Airbnb Analysis",
                              selectInput("plot", "Select the plot type",
                                          c("Histogram"="0","Density"="1", "Box"="2", "Violin"="3")
                              ),
-                             checkboxInput("ylogscale", "Would you like Y to be in log scale ?", value=FALSE)
+                             checkboxInput("xlogscale", "Should X be log scale ?", value=FALSE),
+                             checkboxInput("ylogscale", "Should Y be log scale ?", value=FALSE)
                           ),
                           mainPanel(
                             textOutput("city_one"),

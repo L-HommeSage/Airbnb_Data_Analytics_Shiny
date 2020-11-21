@@ -38,27 +38,56 @@ get_aggregation <- function(input, feature, dataframe){
 }
 
 
-get_ggplot <- function(input, ylogscale, dataframe){
+get_ggplot <- function(input, xlogscale, ylogscale, dataframe){
   if (input == "0"){
     return(ggplot(dataframe, aes(x=City, y=Y, fill=City)) +
-           geom_bar(stat="identity") + (if(ylogscale) scale_y_log10() else NULL) +
+           geom_bar(stat="identity") + 
+           (if(ylogscale) scale_y_log10() else NULL) + (if(xlogscale) scale_x_log10() else NULL) +
            ggtitle("Average availability over 30 days of listings per each city") +
            labs(y="Average availability in days", x = "City"))
   }
   else if(input == "1"){
     return(ggplot(dataframe, aes(Y, fill=City)) +
-           geom_histogram(position = "dodge", bins=4) + (if(ylogscale) scale_y_log10() else NULL) +
+           geom_histogram(position = "dodge", bins=4) +
+           (if(ylogscale) scale_y_log10() else NULL) + (if(xlogscale) scale_x_log10() else NULL) +
            ggtitle("Distribution of estimated availability for the next 30 days of listings per each city") +
            labs(y="Count of listings available", x = "Days of availability per 30 days"))
   }
   else if(input == "2"){
     return(ggplot(dataframe, aes(x=City, y=Y, fill=City)) + 
-           geom_boxplot(alpha=0.3) + (if(ylogscale) scale_y_log10() else NULL) +
+           geom_boxplot(alpha=0.3) +
+           (if(ylogscale) scale_y_log10() else NULL) + (if(xlogscale) scale_x_log10() else NULL) +
            ggtitle("Distribution of availability over the next 30 days for each room type") +
            theme(legend.position="none")+
            labs(x="Room Type", y="Availability over the next 30 days"))
   }
 }
 
+
+get_df <- function(input, berlin, girona, lyon){
+  max_len <- max(lengths(list(berlin, girona, lyon)))
+  
+  length(berlin) <- max_len
+  length(girona) <- max_len
+  length(lyon) <- max_len
+
+  X = c()
+  Y = c()
+  
+  if("0" %in% input){
+    X = c(X, "Berlin, Germany")
+    Y = c(Y, ceiling(berlin))
+  }
+  if("1" %in% input){
+    X = c(X, "Girona, Spain")
+    Y = c(Y, ceiling(girona))
+  }
+  if("2" %in% input){
+    X = c(X, "Lyon, France")
+    Y = c(Y, ceiling(lyon))
+  }
+  
+  return(data.frame("City" = X, "Y" = Y))
+}
 
 
