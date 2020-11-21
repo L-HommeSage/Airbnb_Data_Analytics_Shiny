@@ -1,31 +1,19 @@
-get_data <- function(listingsurl, calendarurl){
+get_data <- function(csvurl){
   
   # Listings
   
   # Load data from URL
-  listingscon <- gzcon(url(listingsurl))
-  listingstxt <- readLines(listingscon)
-  listingsdat <- read.csv(textConnection(listingstxt))
+  con <- gzcon(url(csvurl))
+  txt <- readLines(con)
+  dat <- read.csv(textConnection(txt))
   
   # Transforming data into data frame type
-  listings <- as.data.frame(listingsdat)
+  listings <- as.data.frame(dat)
   
   print(paste0("Listings loaded : ", paste( unlist(dim(listings)), collapse = ' x ' ) ) )
   
-  # Calendars
+  print(head(listings))
   
-  # Load data from URL
-  calendarcon <- gzcon(url(calendarurl))
-  calendartxt <- readLines(calendarcon)
-  calendardat <- read.csv(textConnection(calendartxt))
-  
-  # Transforming data into data frame type
-  calendar <- as.data.frame(calendardat)
-  
-  print(paste0("Calendar loaded : ", paste( unlist(dim(calendar)), collapse = ' x ' ) ) )
-    
-    
-  return(list(listings, calendar))
-  
+  return(listings)
 }
 
