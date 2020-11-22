@@ -17,7 +17,7 @@ navbarPage("Airbnb Analysis",
                                            "Lyon, France, 19 September 2020"="7",
                                            "Lyon, France, 31 August 2020"="8"
                                            ),
-                                         selected=c("0", "1", "2")
+                                         selected=c("0", "3","6")
                              ),
                              selectInput("feature", "Choose the feature",
                                          c(
