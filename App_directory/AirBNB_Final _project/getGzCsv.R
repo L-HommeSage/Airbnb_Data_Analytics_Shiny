@@ -12,6 +12,13 @@ get_data <- function(csvurl){
   
   print(paste0("Listings loaded : ", paste( unlist(dim(listings)), collapse = ' x ' ) ) )
   
+  listings$price <- as.numeric(listings$price) # Appears like it ignores float ?
+  
+  listings$latlong <- paste(listings$latitude, listings$longitude, sep=":")
+  
+  listings$latitude <- NULL
+  listings$longitude <- NULL
+  
   return(na.omit(listings))
 }
 
