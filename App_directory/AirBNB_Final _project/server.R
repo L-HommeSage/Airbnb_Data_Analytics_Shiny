@@ -250,7 +250,7 @@ function(input, output, session) {
       list(
         page=TRUE,
         pageSize=input$pagesize,
-        width=550
+        width=800
       )
     
     gvisTable(get_table(input$data_city, berlin, girona, lyon), options=opts)

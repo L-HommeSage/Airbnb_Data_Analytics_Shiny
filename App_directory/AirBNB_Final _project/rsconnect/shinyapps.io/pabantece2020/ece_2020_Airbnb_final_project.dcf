@@ -5,8 +5,8 @@ account: pabantece2020
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3243945
-bundleId: 3882078
+bundleId: 3895838
 url: https://pabantece2020.shinyapps.io/ece_2020_Airbnb_final_project/
-when: 1605819419.87326
+when: 1606149825.41336
 asMultiple: FALSE
 asStatic: FALSE
