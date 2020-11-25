@@ -1,5 +1,5 @@
-#Airbnb project
-##ECE Ing5 BDA grp1
+# Airbnb project
+## ECE Ing5 BDA grp1
 In this project you will be able to compare the Airbnb insights from the cities of Berlin, Girona and Lyon.
 
 
@@ -10,7 +10,7 @@ Antoniadis Pablo - Llobregat Thomas
 Project link:
 https://pabantece2020.shinyapps.io/ece_2020_Airbnb_final_project/
 
-##Get started:
+## Get started:
 In order to get this project running on your own computer
 
 you will need to install this packages on your RStudio project:
@@ -24,7 +24,7 @@ install.packages('<packageName>')
 - shiny
 
 
-##Get data:
+## Get data:
 If you want to continue working with the data from Berlin, Girona and Lyon you have nothing to do.
 
 If you want a new set of data you will need to use the data-preparation.R script.
